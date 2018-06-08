@@ -1,0 +1,502 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               10.1.9-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win32
+-- HeidiSQL Version:             9.4.0.5125
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Dumping database structure for placement
+CREATE DATABASE IF NOT EXISTS `placement` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `placement`;
+
+-- Dumping structure for table placement.alert_message
+CREATE TABLE IF NOT EXISTS `alert_message` (
+  `alert_message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `date_start` date DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `message` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`alert_message_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.alert_message: ~0 rows (approximately)
+/*!40000 ALTER TABLE `alert_message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `alert_message` ENABLE KEYS */;
+
+-- Dumping structure for table placement.attandance
+CREATE TABLE IF NOT EXISTS `attandance` (
+  `attandance_id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` int(11) DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`attandance_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.attandance: ~0 rows (approximately)
+/*!40000 ALTER TABLE `attandance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `attandance` ENABLE KEYS */;
+
+-- Dumping structure for table placement.certification
+CREATE TABLE IF NOT EXISTS `certification` (
+  `certification_id` int(11) NOT NULL AUTO_INCREMENT,
+  `certification_name` varchar(200) DEFAULT NULL,
+  `certification_description` varchar(200) DEFAULT NULL,
+  `certification_image` varchar(200) DEFAULT NULL,
+  `is_approved` int(1) DEFAULT NULL,
+  PRIMARY KEY (`certification_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.certification: ~0 rows (approximately)
+/*!40000 ALTER TABLE `certification` DISABLE KEYS */;
+/*!40000 ALTER TABLE `certification` ENABLE KEYS */;
+
+-- Dumping structure for table placement.college
+CREATE TABLE IF NOT EXISTS `college` (
+  `college_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_name` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`college_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.college: ~0 rows (approximately)
+/*!40000 ALTER TABLE `college` DISABLE KEYS */;
+/*!40000 ALTER TABLE `college` ENABLE KEYS */;
+
+-- Dumping structure for table placement.college_address
+CREATE TABLE IF NOT EXISTS `college_address` (
+  `college_address_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_email` varchar(200) DEFAULT NULL,
+  `college_phone` int(12) DEFAULT NULL,
+  `college_address` text,
+  `college_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`college_address_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.college_address: ~0 rows (approximately)
+/*!40000 ALTER TABLE `college_address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `college_address` ENABLE KEYS */;
+
+-- Dumping structure for table placement.college_hr
+CREATE TABLE IF NOT EXISTS `college_hr` (
+  `college_hr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_description` text,
+  `alternate_phone` int(12) DEFAULT NULL,
+  `hr_image` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`college_hr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.college_hr: ~0 rows (approximately)
+/*!40000 ALTER TABLE `college_hr` DISABLE KEYS */;
+/*!40000 ALTER TABLE `college_hr` ENABLE KEYS */;
+
+-- Dumping structure for table placement.company
+CREATE TABLE IF NOT EXISTS `company` (
+  `company_id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(200) DEFAULT NULL,
+  `company_website` varchar(200) DEFAULT NULL,
+  `company_mail` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.company: ~0 rows (approximately)
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+
+-- Dumping structure for table placement.company_detail
+CREATE TABLE IF NOT EXISTS `company_detail` (
+  `company_detail_id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_location` int(11) DEFAULT NULL,
+  PRIMARY KEY (`company_detail_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.company_detail: ~0 rows (approximately)
+/*!40000 ALTER TABLE `company_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company_detail` ENABLE KEYS */;
+
+-- Dumping structure for table placement.company_hr
+CREATE TABLE IF NOT EXISTS `company_hr` (
+  `company_hr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `recruitment_id` int(11) NOT NULL DEFAULT '0',
+  `company_id` int(11) NOT NULL DEFAULT '0',
+  `login_validity` int(11) NOT NULL DEFAULT '0',
+  `date` int(11) NOT NULL DEFAULT '0',
+  `contact_no` int(11) NOT NULL DEFAULT '0',
+  `email` int(11) NOT NULL DEFAULT '0',
+  `recruitment_type` int(11) NOT NULL DEFAULT '0',
+  `sslc` int(11) NOT NULL DEFAULT '0',
+  `hsslc` int(11) NOT NULL DEFAULT '0',
+  `cgpa` int(11) NOT NULL DEFAULT '0',
+  `deplomo` varchar(50) NOT NULL DEFAULT '0',
+  `package` varchar(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`company_hr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.company_hr: ~0 rows (approximately)
+/*!40000 ALTER TABLE `company_hr` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company_hr` ENABLE KEYS */;
+
+-- Dumping structure for table placement.company_project
+CREATE TABLE IF NOT EXISTS `company_project` (
+  `company_project_id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_method` varchar(200) DEFAULT NULL,
+  `project_description` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`company_project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.company_project: ~0 rows (approximately)
+/*!40000 ALTER TABLE `company_project` DISABLE KEYS */;
+/*!40000 ALTER TABLE `company_project` ENABLE KEYS */;
+
+-- Dumping structure for table placement.course
+CREATE TABLE IF NOT EXISTS `course` (
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL,
+  `condustor_name` varchar(200) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.course: ~0 rows (approximately)
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+
+-- Dumping structure for table placement.department
+CREATE TABLE IF NOT EXISTS `department` (
+  `department_id` int(11) NOT NULL AUTO_INCREMENT,
+  `department_name` varchar(200) NOT NULL DEFAULT '0',
+  `depet_hr_id` int(11) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.department: ~0 rows (approximately)
+/*!40000 ALTER TABLE `department` DISABLE KEYS */;
+/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+
+-- Dumping structure for table placement.dept_hr
+CREATE TABLE IF NOT EXISTS `dept_hr` (
+  `dept_hr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept_description` text,
+  `alternate_phone` int(12) DEFAULT NULL,
+  `dept_hr_image` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`dept_hr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.dept_hr: ~0 rows (approximately)
+/*!40000 ALTER TABLE `dept_hr` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dept_hr` ENABLE KEYS */;
+
+-- Dumping structure for table placement.digital_resource
+CREATE TABLE IF NOT EXISTS `digital_resource` (
+  `digital_resource_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_id` int(11) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `date_posted` timestamp NULL DEFAULT NULL,
+  `poster_id` int(11) DEFAULT NULL,
+  `resource_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`digital_resource_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.digital_resource: ~0 rows (approximately)
+/*!40000 ALTER TABLE `digital_resource` DISABLE KEYS */;
+/*!40000 ALTER TABLE `digital_resource` ENABLE KEYS */;
+
+-- Dumping structure for table placement.event
+CREATE TABLE IF NOT EXISTS `event` (
+  `event_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) DEFAULT NULL,
+  `descriptioin` varchar(200) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
+  `date_from` date DEFAULT NULL,
+  `date_to` date DEFAULT NULL,
+  `venue` varchar(200) DEFAULT NULL,
+  `conductor` varchar(200) DEFAULT NULL,
+  `conductor_mail` varchar(200) DEFAULT NULL,
+  `conductor_contact` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.event: ~0 rows (approximately)
+/*!40000 ALTER TABLE `event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `event` ENABLE KEYS */;
+
+-- Dumping structure for table placement.event_attachment
+CREATE TABLE IF NOT EXISTS `event_attachment` (
+  `event_attachment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`event_attachment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.event_attachment: ~0 rows (approximately)
+/*!40000 ALTER TABLE `event_attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `event_attachment` ENABLE KEYS */;
+
+-- Dumping structure for table placement.hobby
+CREATE TABLE IF NOT EXISTS `hobby` (
+  `hobby_id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`hobby_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.hobby: ~0 rows (approximately)
+/*!40000 ALTER TABLE `hobby` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hobby` ENABLE KEYS */;
+
+-- Dumping structure for table placement.message
+CREATE TABLE IF NOT EXISTS `message` (
+  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL DEFAULT '0',
+  `post_id` int(11) NOT NULL DEFAULT '0',
+  `date` date DEFAULT NULL,
+  `message` varchar(200) NOT NULL DEFAULT '0',
+  `to_id` int(11) NOT NULL DEFAULT '0',
+  `college_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.message: ~0 rows (approximately)
+/*!40000 ALTER TABLE `message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
+
+-- Dumping structure for table placement.message_attachment
+CREATE TABLE IF NOT EXISTS `message_attachment` (
+  `message_attachment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) DEFAULT NULL,
+  `attachment` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`message_attachment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.message_attachment: ~0 rows (approximately)
+/*!40000 ALTER TABLE `message_attachment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `message_attachment` ENABLE KEYS */;
+
+-- Dumping structure for table placement.perfomance
+CREATE TABLE IF NOT EXISTS `perfomance` (
+  `perfomance_id` int(11) NOT NULL,
+  `student_id` int(11) DEFAULT NULL,
+  `recrument_id` int(11) DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `suggestion` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`perfomance_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.perfomance: ~0 rows (approximately)
+/*!40000 ALTER TABLE `perfomance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `perfomance` ENABLE KEYS */;
+
+-- Dumping structure for table placement.placed_company
+CREATE TABLE IF NOT EXISTS `placed_company` (
+  `placed_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `company_id` int(11) DEFAULT NULL,
+  `recruitment_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`placed_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.placed_company: ~0 rows (approximately)
+/*!40000 ALTER TABLE `placed_company` DISABLE KEYS */;
+/*!40000 ALTER TABLE `placed_company` ENABLE KEYS */;
+
+-- Dumping structure for table placement.placement_request
+CREATE TABLE IF NOT EXISTS `placement_request` (
+  `placement_request_id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_id` int(11) NOT NULL DEFAULT '0',
+  `to_college_id` int(11) NOT NULL DEFAULT '0',
+  `post_id` int(11) NOT NULL DEFAULT '0',
+  `date_posted` date DEFAULT NULL,
+  `recruitment_id` int(11) NOT NULL DEFAULT '0',
+  `is_approved` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`placement_request_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.placement_request: ~0 rows (approximately)
+/*!40000 ALTER TABLE `placement_request` DISABLE KEYS */;
+/*!40000 ALTER TABLE `placement_request` ENABLE KEYS */;
+
+-- Dumping structure for table placement.placement_round
+CREATE TABLE IF NOT EXISTS `placement_round` (
+  `placement_round_id` int(11) NOT NULL AUTO_INCREMENT,
+  `recruitment_id` int(11) NOT NULL DEFAULT '0',
+  `round_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(200) DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`placement_round_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.placement_round: ~0 rows (approximately)
+/*!40000 ALTER TABLE `placement_round` DISABLE KEYS */;
+/*!40000 ALTER TABLE `placement_round` ENABLE KEYS */;
+
+-- Dumping structure for table placement.recruitment
+CREATE TABLE IF NOT EXISTS `recruitment` (
+  `recruitment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `department_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`recruitment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.recruitment: ~0 rows (approximately)
+/*!40000 ALTER TABLE `recruitment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recruitment` ENABLE KEYS */;
+
+-- Dumping structure for table placement.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.roles: ~5 rows (approximately)
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` (`role_id`, `role_name`) VALUES
+	(1, 'Super Admin'),
+	(2, 'HR'),
+	(3, 'Dept HR'),
+	(4, 'Recruiter'),
+	(5, 'Student');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+
+-- Dumping structure for table placement.selected_student
+CREATE TABLE IF NOT EXISTS `selected_student` (
+  `selected_student_id` int(11) NOT NULL AUTO_INCREMENT,
+  `round_id` int(11) NOT NULL DEFAULT '0',
+  `student_id` int(11) NOT NULL DEFAULT '0',
+  `suggestion_type` int(11) NOT NULL DEFAULT '0',
+  `suggestion` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`selected_student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.selected_student: ~0 rows (approximately)
+/*!40000 ALTER TABLE `selected_student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `selected_student` ENABLE KEYS */;
+
+-- Dumping structure for table placement.skill
+CREATE TABLE IF NOT EXISTS `skill` (
+  `skill_id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`skill_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.skill: ~0 rows (approximately)
+/*!40000 ALTER TABLE `skill` DISABLE KEYS */;
+/*!40000 ALTER TABLE `skill` ENABLE KEYS */;
+
+-- Dumping structure for table placement.student
+CREATE TABLE IF NOT EXISTS `student` (
+  `student_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dept_id` int(11) DEFAULT NULL,
+  `birth_date` date DEFAULT NULL,
+  `cgpa` varchar(50) DEFAULT NULL,
+  `arrear` int(11) DEFAULT NULL,
+  `sslc` int(11) DEFAULT NULL,
+  `twelth` int(11) DEFAULT NULL,
+  `deplomo` int(11) DEFAULT NULL,
+  `parent_phone` int(11) DEFAULT NULL,
+  `alternate_parent_phone` int(11) DEFAULT NULL,
+  `student_phone` int(11) DEFAULT NULL,
+  `alternate_student_phone` int(11) DEFAULT NULL,
+  `about_me` text,
+  `my_moto` varchar(200) DEFAULT NULL,
+  `address` text,
+  `alternate_address` text,
+  `student_image` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.student: ~0 rows (approximately)
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+
+-- Dumping structure for table placement.student_project
+CREATE TABLE IF NOT EXISTS `student_project` (
+  `student_project_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) DEFAULT NULL,
+  `project_title` varchar(200) DEFAULT NULL,
+  `project_description` varchar(200) DEFAULT NULL,
+  `project_url` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`student_project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.student_project: ~0 rows (approximately)
+/*!40000 ALTER TABLE `student_project` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_project` ENABLE KEYS */;
+
+-- Dumping structure for table placement.student_recruitment
+CREATE TABLE IF NOT EXISTS `student_recruitment` (
+  `student_recruitment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `recruitment_id` int(11) NOT NULL DEFAULT '0',
+  `is_interested` int(11) NOT NULL DEFAULT '0',
+  `student_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`student_recruitment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.student_recruitment: ~0 rows (approximately)
+/*!40000 ALTER TABLE `student_recruitment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_recruitment` ENABLE KEYS */;
+
+-- Dumping structure for table placement.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(200) DEFAULT NULL,
+  `user_email` varchar(200) DEFAULT NULL,
+  `user_phone` varchar(50) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.users: ~5 rows (approximately)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_phone`, `password`, `role_id`) VALUES
+	(1, 'Super Admin', 'superadmin@gmail.com', '2147483647', 'password', 1),
+	(2, 'HR', 'hr@gmail.com', '2147483647', 'password', 2),
+	(3, 'Dept HR', 'dhr@gmail.com', '2147483647', 'password', 3),
+	(4, 'Recruiter', 'recruiter@gmail.com', '2147483647', 'password', 4),
+	(5, 'Student', 'student@gmail.com', '2147483647', 'password', 5);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+-- Dumping structure for table placement.vote_call
+CREATE TABLE IF NOT EXISTS `vote_call` (
+  `vote_call_id` int(11) NOT NULL AUTO_INCREMENT,
+  `poster_id` int(11) DEFAULT NULL,
+  `college_id` int(11) DEFAULT NULL,
+  `date_start` timestamp NULL DEFAULT NULL,
+  `date_end` timestamp NULL DEFAULT NULL,
+  `is_approved` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`vote_call_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.vote_call: ~0 rows (approximately)
+/*!40000 ALTER TABLE `vote_call` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vote_call` ENABLE KEYS */;
+
+-- Dumping structure for table placement.vote_manage
+CREATE TABLE IF NOT EXISTS `vote_manage` (
+  `vote_manage` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) DEFAULT NULL,
+  `vote_id` int(11) DEFAULT NULL,
+  `reason` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`vote_manage`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table placement.vote_manage: ~0 rows (approximately)
+/*!40000 ALTER TABLE `vote_manage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vote_manage` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

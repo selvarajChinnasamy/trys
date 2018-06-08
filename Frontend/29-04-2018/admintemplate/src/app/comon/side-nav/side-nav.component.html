@@ -1,0 +1,151 @@
+<div class="side-nav-bar">
+    <div class="side-nav">
+        <div class="side-nav-box">
+            <mat-accordion>
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a title="Dashboard"><i class="material-icons side-nav-icon">dashboard</i><span class="side-nav-text">DashBoard</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">group</i><span class="side-nav-text">Customer</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">description</i><span class="side-nav-text">Categories</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li><a>Category Group</a></li>
+                        <li><a>Category</a></li>
+                        <li><a>Sub Category</a></li>
+                    </ul>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">polymer</i><span class="side-nav-text">Brands</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">local_offer
+                                            </i><span class="side-nav-text">Products</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">local_grocery_store
+                                            </i><span class="side-nav-text">Orders</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">insert_chart
+                                            </i><span class="side-nav-text">Reports</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">theaters</i><span class="side-nav-text">Advertisements</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">slideshow</i><span class="side-nav-text">Slider Settings</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">favorite</i><span class="side-nav-text">Favourites</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">stars</i><span class="side-nav-text">Ratings</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">art_track</i><span class="side-nav-text">CMS</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">settings</i><span class="side-nav-text">General Settings</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li><a>Country</a></li>
+                        <li><a>State</a></li>
+                        <li><a>City</a></li>
+                        <li><a>Tax</a></li>
+                        <li><a>Currency</a></li>
+                        <li><a>Shipping</a></li>
+                        <li><a>Theme</a></li>
+                        <li><a>Role</a></li>
+                        <li><a>Language</a></li>
+                        <li><a>Site settings</a></li>
+                        <li><a>SMTP settings</a></li>
+                        <li><a>Third Party settings</a></li>
+                    </ul>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <a><i class="material-icons side-nav-icon">send</i><span class="side-nav-text">Subscription</span></a>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li><a>SMS Template</a></li>
+                        <li><a>Mail Template</a></li>
+                    </ul>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                </mat-expansion-panel>
+
+            </mat-accordion>
+        </div>
+    </div>
+</div>

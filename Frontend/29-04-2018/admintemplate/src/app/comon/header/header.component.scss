@@ -1,0 +1,42 @@
+@import "~sass/variables";
+@import "~sass/media";
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #dedbdb;
+    height: 7vh;
+    position: relative;
+    z-index: 99;
+    padding: 0;
+    margin: 0;
+    @include respond-to($laptop) {
+        height: 10vh;
+    }
+}
+
+.header-logo {
+    margin-top: 2.2vh;
+    position: absolute;
+    margin-left: 7vh;
+    @include respond-to($laptop) {
+        margin-left: 9vh;
+    }
+    ;
+    @include respond-to($mobile) {
+        margin-top: 2.5vh;
+    }
+}
+
+.header-side-icon {
+    margin-left: 2.5vh;
+    margin-top: 2.5vh;
+    margin-right: 2vh;
+    position: absolute;
+    cursor: pointer;
+    @include respond-to($laptop) {
+        margin-left: 3.5vh;
+    }
+    ;
+    @include respond-to($mobile) {
+        margin-top: 3.5vh;
+    }
+}

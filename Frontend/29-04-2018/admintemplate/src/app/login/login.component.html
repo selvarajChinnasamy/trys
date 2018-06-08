@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="login-logo">
+    <img src="assets/images/Logo.png">
+  </div>
+  <div class="login-wrapper">
+    <h4 class="login-txt">LOGIN</h4>
+    <div class="login-from-fileds">
+      <div class="col-md-6">
+        <form [formGroup]="loginForm" (ngSubmit)="loginDetails()">
+          <div class="login-container">
+            <mat-form-field>
+              <input type="text" matInput formControlName="userEmail" placeholder="User Name" required/>
+            </mat-form-field>
+            <span *ngIf="(loginForm.controls['userEmail'].invalid && (loginForm.controls['userEmail'].dirty || loginForm.controls['userEmail'].touched))" class="text-danger">
+              <span *ngIf="loginForm.controls['userEmail'].errors.required">
+                Required
+              </span>
+              <span *ngIf="loginForm.controls['userEmail'].errors.email && !loginForm.controls['userEmail'].errors.required">
+                Enter a valid email Id.
+              </span>
+            </span>
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" type="password" name="password" required/>
+              <span matSuffix class="login-forgot-txt">Forgot Password?</span>
+            </mat-form-field>
+            <span *ngIf="(loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched))" class="text-danger">
+              <span *ngIf="loginForm.controls['password'].errors.required">
+                Required
+              </span>
+            </span>
+          </div>
+          <button mat-raised-button [disabled]="!loginForm.valid" color="primary">LOGIN</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

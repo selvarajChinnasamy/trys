@@ -1,0 +1,52 @@
+<div class="category-table">
+    <div class="common-pageheader">
+        <div class="common-title">Category</div>
+        <div class="common-button">
+            <button mat-raised-button color="primary">ADD PRODUCT</button>
+        </div>
+        <div class="common-search">
+            <mat-form-field class="example-full-width">
+                <input type="tel" matInput>
+                <mat-icon matSuffix><i class="material-icons">search</i></mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Category Group Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Category Image </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let element" title="Status">
+                <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+                    Inactive
+                </mat-slide-toggle>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Action</mat-header-cell>
+            <mat-cell *matCellDef="let element"> <i class="material-icons" title="View">remove_red_eye</i> <i class="material-icons" title="Edit">mode_edit</i> <i class="material-icons" title="Delete">delete</i> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>

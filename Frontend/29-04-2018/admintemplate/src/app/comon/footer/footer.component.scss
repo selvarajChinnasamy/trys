@@ -1,0 +1,17 @@
+@import "~sass/variables";
+@import "~sass/media";
+.footer {
+    overflow: hidden;
+    background-color: #fff;
+    padding: 1.5vh;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-family: $font-stack;
+    @include respond-to($laptop) {
+        padding: 2.5vh;
+    }
+    @include respond-to($mobile) {
+        padding: 1.5vh;
+        font-size: 12px;
+    }
+}

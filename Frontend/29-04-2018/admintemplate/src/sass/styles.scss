@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'variables';
+@import 'reset';
+@import 'media';
+@import 'materialTheme';
+@import '../assets/css/custom-materialize.css';
+@import 'animate.css';
+body {
+    background-color: $bg-color;
+}
+
+.mat-expansion-panel-spacing {
+    margin: 0 !important;
+}
+
+.mat-expansion-panel-body {
+    padding: 0px 0 0px 0px !important;
+    line-height: 3;
+    background-color: #f5f5f5;
+}
+
+.mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-title,
+.mat-expansion-panel-header[aria-disabled='true'] .mat-expansion-panel-header-description {
+    color: #484848 !important;
+    cursor: pointer;
+}
+
+.mat-expansion-panel-header:focus,
+.mat-expansion-panel-header:hover {
+    background: #f5f5f5 !important;
+}
+
+.routing-halfwidth {
+    width: 82.5%;
+    height: auto;
+    top: 74px;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 0px #cecece;
+    border-radius: 2px;
+    margin-left: 33.4vh;
+    margin-top: 0.5vh;
+    @include respond-to($laptop) {
+        width: 75.33%;
+        margin-left: 51vh;
+    }
+}
+
+.routing-fullwidth {
+    width: 98.9%;
+    height: auto;
+    top: 74px;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 0px #cecece;
+    border-radius: 2px;
+    margin-left: 1vh;
+    margin-top: 0.5vh;
+    @include respond-to($mobile) {
+        width: 96.33%;
+    }
+}
+
+.side-nav-bar {
+    height: 88vh;
+    width: 314px;
+    background-color: white;
+    overflow-x: hidden;
+    @include respond-to($laptop) {
+        height: 121vh;
+    }
+}

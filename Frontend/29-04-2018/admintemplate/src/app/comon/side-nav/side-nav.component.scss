@@ -1,0 +1,55 @@
+@import "~sass/variables";
+.side-nav-box {
+    background-color: #ffffff;
+    width: 314px;
+}
+
+.side-nav {
+    font-family: $font-stack;
+}
+
+.side-nav ul {
+    list-style: none;
+    text-align: left;
+    font-weight: bolder;
+    color: #313131;
+}
+
+.side-nav ul li {
+    display: block;
+    cursor: pointer;
+}
+
+.side-nav ul li a {
+    display: block;
+    padding: 0px 0px 0px 63px;
+    text-decoration: none;
+}
+
+.side-nav ul li a,
+.side-nav ul li a:after,
+.side-nav ul li a:before {
+    transition: all .5s;
+}
+
+.side-nav ul li a:hover {
+    color: #fff;
+    background-color: #8e8e8e;
+}
+
+.side-nav-icon {
+    display: inline-flex;
+    align-self: center;
+    top: 0;
+    position: relative;
+}
+
+.side-nav-text {
+    vertical-align: super;
+    margin-left: 1em;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0 0 0 !important;
+    border-bottom: 1px solid #eee;
+}

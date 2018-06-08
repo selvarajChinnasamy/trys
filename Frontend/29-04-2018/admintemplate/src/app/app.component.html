@@ -1,0 +1,21 @@
+<div *ngIf="!isLogin">
+    <div class="container-fluid">
+        <div class="col">
+            <app-header (myEvent)="handleMyEvent($event)"></app-header>
+        </div>
+
+        <div class="col" [ngClass]="sideBar === true ? 'animated fadeInLeft' : 'animated fadeOutLeft' ">
+            <app-side-nav class="side-nav-bar"></app-side-nav>
+        </div>
+    </div>
+</div>
+
+<div class="col" [class.routing-halfwidth]="isLogin === false && sideBar === true" [class.routing-fullwidth]="isLogin === false && sideBar === false">
+    <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!isLogin">
+    <div class="col">
+        <app-footer></app-footer>
+    </div>
+</div>
